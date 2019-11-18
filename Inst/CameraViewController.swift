@@ -13,12 +13,12 @@ import Parse
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
- 
     @IBOutlet weak var commentField: UITextField!
+    
     
     @IBAction func onSendButton(_ sender: Any) {
         let post = PFObject(className: "Posts")
-        post["caption"] = commentField.text
+        post["caption"] = commentField.text!
         post["author"] = PFUser.current()!
         
         let imageData = imageView.image!.pngData()
